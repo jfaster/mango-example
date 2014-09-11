@@ -1,6 +1,7 @@
-package cc.concurrent.mango.example.cache;
+package org.jfaster.mango.example.cache;
 
-import cc.concurrent.mango.*;
+import org.jfaster.mango.annotation.*;
+import org.jfaster.mango.cache.Day;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package cc.concurrent.mango.example.cache;
+package org.jfaster.mango.example.cache;
 
-import cc.concurrent.mango.DriverManagerDataSource;
-import cc.concurrent.mango.Mango;
+import org.jfaster.mango.datasource.DriverManagerDataSource;
+import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
 import java.util.Arrays;

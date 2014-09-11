@@ -1,9 +1,9 @@
-package cc.concurrent.mango.example;
+package org.jfaster.mango.example;
 
-import cc.concurrent.mango.DB;
-import cc.concurrent.mango.DriverManagerDataSource;
-import cc.concurrent.mango.Mango;
-import cc.concurrent.mango.SQL;
+import org.jfaster.mango.annotation.DB;
+import org.jfaster.mango.annotation.SQL;
+import org.jfaster.mango.datasource.DriverManagerDataSource;
+import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
 

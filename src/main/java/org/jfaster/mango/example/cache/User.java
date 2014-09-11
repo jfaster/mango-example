@@ -1,4 +1,4 @@
-package cc.concurrent.mango.example.cache;
+package org.jfaster.mango.example.cache;
 
 public class User {
 

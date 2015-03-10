@@ -1,6 +1,6 @@
 package org.jfaster.mango.example.cache;
 
-import org.jfaster.mango.cache.CacheHandler;
+import org.jfaster.mango.operator.cache.CacheHandler;
 
 import java.util.HashMap;
 import java.util.Map;

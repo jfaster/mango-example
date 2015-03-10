@@ -11,27 +11,29 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/mango_db";
+        String url = "jdbc:mysql://localhost:3306/mango_example";
         String username = "root"; // 这里请使用您自己的用户名
         String password = "root"; // 这里请使用您自己的密码
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
-        Mango mango = new Mango(ds); // 使用数据源初始化mango
+        Mango mango = Mango.newInstance(ds); // 使用数据源初始化mango
 
-        HelloWorldDao dao = mango.create(HelloWorldDao.class);
-        int id = 1;
-        dao.add(id, "hello world");
-        String content = dao.getContentById(id);
-        System.out.println(content);
+        FruitDao dao = mango.create(FruitDao.class);
+        String name = "apple";
+        int num = 7;
+        dao.add(name, num);
+        System.out.println(dao.getTotalNum(name));
     }
 
     @DB
-    static interface HelloWorldDao {
+    interface FruitDao {
 
-        @SQL("insert into hello_world_table(id, content) values(:1, :2)")
-        public int add(int id, String content);
+        // 插入数据
+        @SQL("insert into fruit(name, num) values(:1, :2)")
+        public void add(String name, int num);
 
-        @SQL("select content from hello_world_table where id=:1")
-        public String getContentById(int id);
+         // 根据name取num的总和
+        @SQL("select sum(num) from fruit where name=:1")
+        public int getTotalNum(String name);
 
     }
 

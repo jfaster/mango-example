@@ -9,11 +9,12 @@ public class SingleKeyMultiValues {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/mango_db";
+        String url = "jdbc:mysql://localhost:3306/mango_example";
         String username = "root"; // 这里请使用您自己的用户名
         String password = "root"; // 这里请使用您自己的密码
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
-        Mango mango = new Mango(ds, new CacheHandlerImpl()); // 使用数据源和CacheHandlerImpl初始化mango
+        Mango mango = Mango.newInstance(ds);
+        mango.setDefaultCacheHandler(new CacheHandlerImpl());
 
         SingleKeyMultiValuesDao dao = mango.create(SingleKeyMultiValuesDao.class);
         int uid = 1;

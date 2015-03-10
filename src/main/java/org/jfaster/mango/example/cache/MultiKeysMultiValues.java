@@ -10,17 +10,18 @@ public class MultiKeysMultiValues {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/mango_db";
+        String url = "jdbc:mysql://localhost:3306/mango_example";
         String username = "root"; // 这里请使用您自己的用户名
         String password = "root"; // 这里请使用您自己的密码
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
-        Mango mango = new Mango(ds, new CacheHandlerImpl()); // 使用数据源和CacheHandlerImpl初始化mango
+        Mango mango = Mango.newInstance(ds);
+        mango.setDefaultCacheHandler(new CacheHandlerImpl());
 
         MultiKeysMultiValuesDao dao = mango.create(MultiKeysMultiValuesDao.class);
-        dao.insert(1, "ash");
-        dao.insert(2, "lucy");
-        dao.insert(3, "lily");
-        System.out.println(dao.getUsers(Arrays.asList(1, 2, 3)));
+        dao.insert(100, "ash");
+        dao.insert(200, "lucy");
+        dao.insert(300, "lily");
+        System.out.println(dao.getUsers(Arrays.asList(100, 200, 300)));
     }
 
 }

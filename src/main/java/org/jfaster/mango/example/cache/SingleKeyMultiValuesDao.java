@@ -1,7 +1,7 @@
 package org.jfaster.mango.example.cache;
 
 import org.jfaster.mango.annotation.*;
-import org.jfaster.mango.cache.Day;
+import org.jfaster.mango.operator.cache.Day;
 
 import java.util.List;
 

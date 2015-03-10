@@ -1,7 +1,7 @@
 package org.jfaster.mango.example.cache;
 
 import org.jfaster.mango.annotation.*;
-import org.jfaster.mango.cache.Hour;
+import org.jfaster.mango.operator.cache.Hour;
 
 @DB
 @Cache(prefix = "user_", expire = Hour.class, num = 2)

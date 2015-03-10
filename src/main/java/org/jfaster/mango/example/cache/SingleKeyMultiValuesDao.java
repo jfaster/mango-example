@@ -6,7 +6,7 @@ import org.jfaster.mango.operator.cache.Day;
 import java.util.List;
 
 @DB
-@Cache(prefix = "message_", expire = Day.class)
+@Cache(prefix = "message", expire = Day.class)
 public interface SingleKeyMultiValuesDao {
 
     @ReturnGeneratedId

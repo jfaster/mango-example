@@ -6,7 +6,7 @@ import org.jfaster.mango.operator.cache.Hour;
 import java.util.List;
 
 @DB
-@Cache(prefix = "user_", expire = Hour.class, num = 2)
+@Cache(prefix = "user", expire = Hour.class, num = 2)
 public interface MultiKeysMultiValuesDao {
 
     @CacheIgnored

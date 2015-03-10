@@ -4,7 +4,7 @@ import org.jfaster.mango.annotation.*;
 import org.jfaster.mango.operator.cache.Hour;
 
 @DB
-@Cache(prefix = "user_", expire = Hour.class, num = 2)
+@Cache(prefix = "user", expire = Hour.class, num = 2)
 public interface SingleKeySingeValueDao {
 
     @CacheIgnored

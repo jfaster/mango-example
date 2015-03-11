@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.cache;
+package org.jfaster.mango.example.model;
 
 public class User {
 

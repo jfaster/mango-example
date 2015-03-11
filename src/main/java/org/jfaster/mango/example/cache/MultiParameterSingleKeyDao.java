@@ -4,6 +4,7 @@ import org.jfaster.mango.annotation.Cache;
 import org.jfaster.mango.annotation.CacheBy;
 import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.SQL;
+import org.jfaster.mango.example.model.User;
 import org.jfaster.mango.operator.cache.Hour;
 
 /**

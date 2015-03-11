@@ -9,7 +9,11 @@ public class MyDataSourceRouter implements DataSourceRouter {
 
     @Override
     public String getDataSourceName(Object shardParam) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        if (!(shardParam instanceof Integer)) {
+            throw new IllegalArgumentException("Parameter need Integer");
+        }
+        Integer num = (Integer) shardParam;
+        return num % 10 < 5 ? "datasource1" : "datasource2";
     }
 
 }

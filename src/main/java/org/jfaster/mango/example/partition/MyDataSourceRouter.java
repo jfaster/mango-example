@@ -2,9 +2,6 @@ package org.jfaster.mango.example.partition;
 
 import org.jfaster.mango.partition.DataSourceRouter;
 
-/**
- * @author ash
- */
 public class MyDataSourceRouter implements DataSourceRouter {
 
     @Override

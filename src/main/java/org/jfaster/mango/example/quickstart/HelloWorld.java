@@ -1,4 +1,4 @@
-package org.jfaster.mango.example;
+package org.jfaster.mango.example.quickstart;
 
 import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.SQL;

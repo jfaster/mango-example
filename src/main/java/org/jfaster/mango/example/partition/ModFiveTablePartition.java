@@ -2,9 +2,6 @@ package org.jfaster.mango.example.partition;
 
 import org.jfaster.mango.partition.TablePartition;
 
-/**
- * @author ash
- */
 public class ModFiveTablePartition implements TablePartition {
 
     @Override

@@ -6,9 +6,6 @@ import org.jfaster.mango.annotation.ShardBy;
 import org.jfaster.mango.example.model.User;
 import org.jfaster.mango.partition.ModTenTablePartition;
 
-/**
- * @author ash
- */
 @DB(table = "user", tablePartition = ModTenTablePartition.class)
 public interface UserDao {
 

@@ -27,11 +27,11 @@ public class AccountsDaoRunner {
         try {
             dao.addMoney(zhangsan, -money);
             dao.addMoney(lisi, money);
-            tx.commit();
         } catch (Throwable e) {
             tx.rollback();
+            return;
         }
+        tx.commit();
     }
-
 
 }

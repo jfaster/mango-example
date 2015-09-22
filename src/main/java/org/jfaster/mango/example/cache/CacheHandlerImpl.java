@@ -1,13 +1,13 @@
 package org.jfaster.mango.example.cache;
 
-import org.jfaster.mango.operator.cache.CacheHandler;
+import org.jfaster.mango.operator.cache.SimpleCacheHandler;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class CacheHandlerImpl implements CacheHandler {
+public class CacheHandlerImpl extends SimpleCacheHandler {
 
     private ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<String, Object>();
 
@@ -31,14 +31,8 @@ public class CacheHandlerImpl implements CacheHandler {
     }
 
     @Override
-    public void delete(Set<String> keys) {
-        for (String key : keys) {
-            delete(key);
-        }
-    }
-
-    @Override
     public void delete(String key) {
         cache.remove(key);
     }
+
 }

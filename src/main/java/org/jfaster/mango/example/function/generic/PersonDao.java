@@ -3,7 +3,6 @@ package org.jfaster.mango.example.function.generic;
 import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.ReturnGeneratedId;
 import org.jfaster.mango.annotation.SQL;
-import org.jfaster.mango.example.function.simple.Teacher;
 
 /**
  * @author ash

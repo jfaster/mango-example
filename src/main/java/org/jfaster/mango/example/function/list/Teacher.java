@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.function.simple;
+package org.jfaster.mango.example.function.list;
 
 import org.jfaster.mango.annotation.Getter;
 import org.jfaster.mango.annotation.Setter;

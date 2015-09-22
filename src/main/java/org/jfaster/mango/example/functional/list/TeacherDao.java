@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.function.list;
+package org.jfaster.mango.example.functional.list;
 
 import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.ReturnGeneratedId;

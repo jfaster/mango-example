@@ -1,21 +1,20 @@
-package org.jfaster.mango.example.function.generic;
+package org.jfaster.mango.example.functional.json;
 
 import org.jfaster.mango.annotation.Getter;
 import org.jfaster.mango.annotation.Setter;
-import org.jfaster.mango.invoker.function.enums.EnumToStringFunction;
-import org.jfaster.mango.invoker.function.enums.StringToEnumFunction;
 import org.jfaster.mango.invoker.function.json.GsonToObjectFunction;
 import org.jfaster.mango.invoker.function.json.ObjectToGsonFunction;
 
 /**
  * @author ash
  */
-public class Person {
+public class Card {
 
     private int id;
+
     private String name;
-    private Gender gender;
-    private Card card;
+
+    private SubCard subCard;
 
     public int getId() {
         return id;
@@ -33,23 +32,14 @@ public class Person {
         this.name = name;
     }
 
-    @Getter(EnumToStringFunction.class)
-    public Gender getGender() {
-        return gender;
-    }
-
-    @Setter(StringToEnumFunction.class)
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
     @Getter(ObjectToGsonFunction.class)
-    public Card getCard() {
-        return card;
+    public SubCard getSubCard() {
+        return subCard;
     }
 
     @Setter(GsonToObjectFunction.class)
-    public void setCard(Card card) {
-        this.card = card;
+    public void setSubCard(SubCard subCard) {
+        this.subCard = subCard;
     }
+
 }

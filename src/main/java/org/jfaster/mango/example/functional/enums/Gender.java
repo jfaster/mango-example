@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.function.generic;
+package org.jfaster.mango.example.functional.enums;
 
 /**
  * @author ash

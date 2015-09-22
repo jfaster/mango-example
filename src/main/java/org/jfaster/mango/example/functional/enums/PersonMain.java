@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.function.generic;
+package org.jfaster.mango.example.functional.enums;
 
 import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.operator.Mango;
@@ -22,15 +22,10 @@ public class PersonMain {
         Person person = new Person();
         person.setName("ash");
         person.setGender(Gender.MALE);
-        Card card = new Card();
-        card.setType("type1");
-        card.setContent("hello");
-        person.setCard(card);
         int id = dao.addPerson(person);
         Person personFromDb = dao.getPersonById(id);
+        System.out.println("name=" + personFromDb.getName());
         System.out.println("gender=" + personFromDb.getGender());
-        System.out.println("card.type=" + personFromDb.getCard().getType());
-        System.out.println("card.content=" + personFromDb.getCard().getContent());
     }
 
 }

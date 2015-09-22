@@ -1,16 +1,14 @@
-package org.jfaster.mango.example.function.list;
+package org.jfaster.mango.example.functional.json;
 
 import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author ash
  */
-public class TeacherMain {
+public class CardMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
@@ -20,16 +18,19 @@ public class TeacherMain {
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
         Mango mango = Mango.newInstance(ds); // 使用数据源初始化mango
 
-        TeacherDao dao = mango.create(TeacherDao.class);
-        Teacher teacher = new Teacher();
+        CardDao dao = mango.create(CardDao.class);
+        Card card = new Card();
         String name = "ash";
-        List<Integer> studentIds = Arrays.asList(1, 2, 3);
-        teacher.setName(name);
-        teacher.setStudentIds(studentIds);
-        int id = dao.addTeacher(teacher);
-        Teacher teacherFromDb = dao.getTeacherById(id);
-        System.out.println("name=" + teacherFromDb.getName());
-        System.out.println("studentIds=" + teacherFromDb.getStudentIds());
+        SubCard sc = new SubCard();
+        sc.setType(10);
+        sc.setContent("hello");
+        card.setName(name);
+        card.setSubCard(sc);
+        int id = dao.addCard(card);
+        Card cardFromDb = dao.getCardById(id);
+        System.out.println("name=" + cardFromDb.getName());
+        System.out.println("subCard.type=" + cardFromDb.getSubCard().getType());
+        System.out.println("subCard.content=" + cardFromDb.getSubCard().getContent());
     }
 
 }

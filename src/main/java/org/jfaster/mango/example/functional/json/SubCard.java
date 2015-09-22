@@ -1,19 +1,19 @@
-package org.jfaster.mango.example.function.generic;
+package org.jfaster.mango.example.functional.json;
 
 /**
  * @author ash
  */
-public class Card {
+public class SubCard {
 
-    private String type;
+    private int type;
 
     private String content;
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
@@ -24,5 +24,4 @@ public class Card {
     public void setContent(String content) {
         this.content = content;
     }
-
 }

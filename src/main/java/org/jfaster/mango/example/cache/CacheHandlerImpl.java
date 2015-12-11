@@ -35,10 +35,4 @@ public class CacheHandlerImpl extends SimpleCacheHandler {
         cache.remove(key);
     }
 
-    public static void main(String[] args) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("key", null);
-        System.out.println(map.size());
-    }
-
 }

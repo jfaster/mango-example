@@ -4,6 +4,8 @@ import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ash
@@ -29,6 +31,9 @@ public class BindingMain {
 
         dao.addUserByIndex(uid, name, age);
         dao.addUserByRename(uid, name, age);
+        List<Integer> uids = new ArrayList<Integer>();
+        uids.add(uid);
+        System.out.println(dao.getUsersByUids(uids));
         dao.addUserByObjIndex(user);
         dao.addUserByObjRename(user);
         dao.addUserByProperty(user);

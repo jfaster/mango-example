@@ -4,11 +4,14 @@ import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.SQL;
 import org.jfaster.mango.annotation.ShardBy;
 import org.jfaster.mango.example.model.User;
-import org.jfaster.mango.partition.ModTenTablePartition;
+import org.jfaster.mango.partition.IntegerModTenTablePartition;
 
-@DB(table = "user", tablePartition = ModTenTablePartition.class,
-        dataSourceRouter = MyDataSourceRouter.class)
-public interface RouterUserDao {
+@DB(
+        table = "user",
+        dataSourceRouter = MyDataSourceRouter.class,
+        tablePartition = IntegerModTenTablePartition.class
+)
+public interface User2Dao {
 
     @SQL("insert into #table(uid, name) values(:1, :2)")
     public void addUser(@ShardBy int uid, String name);

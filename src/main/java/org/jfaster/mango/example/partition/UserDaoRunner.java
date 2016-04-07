@@ -18,7 +18,7 @@ public class UserDaoRunner {
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
         Mango mango = Mango.newInstance(ds);
 
-        UserDao userDao = mango.create(UserDao.class);
+        TablePartiionUserDao userDao = mango.create(TablePartiionUserDao.class);
 
         // 需要在mango_example库中创建一张user_8的表
         int uid = 88;

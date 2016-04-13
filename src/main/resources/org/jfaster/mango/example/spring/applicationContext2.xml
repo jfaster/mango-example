@@ -4,7 +4,7 @@
 <beans>
 
     <!-- 配置扫描使用@DB注解修饰的DAO类 -->
-    <bean class="org.jfaster.mango.plugin.spring.MangoConfigurer">
+    <bean class="org.jfaster.mango.plugin.spring.MangoDaoScanner">
         <property name="packages">
             <list>
                 <!-- 扫描包名 -->

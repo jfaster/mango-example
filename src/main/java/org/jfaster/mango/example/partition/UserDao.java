@@ -4,7 +4,7 @@ import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.DataSourceShardBy;
 import org.jfaster.mango.annotation.SQL;
 import org.jfaster.mango.annotation.TableShardBy;
-import org.jfaster.mango.example.model.User;
+import org.jfaster.mango.example.cache.User;
 import org.jfaster.mango.partition.IntegerModTenTablePartition;
 
 @DB(

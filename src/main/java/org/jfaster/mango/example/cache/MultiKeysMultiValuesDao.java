@@ -1,7 +1,6 @@
 package org.jfaster.mango.example.cache;
 
 import org.jfaster.mango.annotation.*;
-import org.jfaster.mango.example.model.User;
 import org.jfaster.mango.operator.cache.Hour;
 
 import java.util.List;

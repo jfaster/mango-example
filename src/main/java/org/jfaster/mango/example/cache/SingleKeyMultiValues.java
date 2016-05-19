@@ -1,7 +1,6 @@
 package org.jfaster.mango.example.cache;
 
 import org.jfaster.mango.datasource.DriverManagerDataSource;
-import org.jfaster.mango.example.model.Message;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;

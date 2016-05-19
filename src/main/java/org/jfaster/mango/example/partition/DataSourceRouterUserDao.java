@@ -3,7 +3,7 @@ package org.jfaster.mango.example.partition;
 import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.DataSourceShardBy;
 import org.jfaster.mango.annotation.SQL;
-import org.jfaster.mango.example.model.User;
+import org.jfaster.mango.example.cache.User;
 
 @DB(table = "user", dataSourceRouter = MyDataSourceRouter.class)
 public interface DataSourceRouterUserDao {

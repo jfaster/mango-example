@@ -1,4 +1,6 @@
-package org.jfaster.mango.example.model;
+package org.jfaster.mango.example.cache;
+
+import com.google.common.base.MoreObjects;
 
 public class Message {
 
@@ -32,6 +34,11 @@ public class Message {
 
     @Override
     public String toString() {
-        return "id=" + id + ", uid=" + uid + ", content=" + content;
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("uid", uid)
+                .add("content", content)
+                .toString();
     }
+
 }

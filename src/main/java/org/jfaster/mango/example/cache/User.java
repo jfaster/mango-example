@@ -1,4 +1,6 @@
-package org.jfaster.mango.example.model;
+package org.jfaster.mango.example.cache;
+
+import com.google.common.base.MoreObjects;
 
 public class User {
 
@@ -23,6 +25,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "uid=" + uid + ", name=" + name;
+        return MoreObjects.toStringHelper(this)
+                .add("uid", uid)
+                .add("name", name)
+                .toString();
     }
 }

@@ -1,5 +1,7 @@
 package org.jfaster.mango.example.mapping;
 
+import com.google.common.base.MoreObjects;
+
 import java.util.Date;
 
 /**
@@ -43,4 +45,15 @@ public class MappingUser2 {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("userId", userId)
+                .add("userName", userName)
+                .add("userAge", userAge)
+                .add("updateTime", updateTime)
+                .toString();
+    }
+
 }

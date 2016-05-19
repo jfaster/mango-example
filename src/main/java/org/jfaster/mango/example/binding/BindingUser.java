@@ -1,5 +1,7 @@
 package org.jfaster.mango.example.binding;
 
+import com.google.common.base.MoreObjects;
+
 /**
  * @author ash
  */
@@ -35,4 +37,12 @@ public class BindingUser {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("uid", uid)
+                .add("name", name)
+                .add("age", age)
+                .toString();
+    }
 }

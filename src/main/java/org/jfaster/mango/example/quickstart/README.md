@@ -1,5 +1,4 @@
 table
------
 
 ```
 CREATE TABLE `fruit` (

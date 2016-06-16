@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.partition;
+package org.jfaster.mango.example.sharding;
 
 import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.operator.Mango;

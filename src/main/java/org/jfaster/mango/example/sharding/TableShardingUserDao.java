@@ -4,15 +4,13 @@ import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.SQL;
 import org.jfaster.mango.annotation.Sharding;
 import org.jfaster.mango.annotation.TableShardingBy;
-import org.jfaster.mango.example.cache.User;
-import org.jfaster.mango.sharding.ModTenTableShardingStrategy;
 
 @DB(table = "user")
-@Sharding(tableShardingStrategy = ModTenTableShardingStrategy.class)
-public interface TablePartiionUserDao {
+@Sharding(tableShardingStrategy = UserTableShardingStrategy.class)
+public interface TableShardingUserDao {
 
-    @SQL("insert into #table(uid, name) values(:1, :2)")
-    public void addUser(@TableShardingBy int uid, String name);
+    @SQL("insert into #table(uid, name) values(:uid, :name)")
+    public void addUser(@TableShardingBy("uid") User user);
 
     @SQL("select uid, name from #table where uid = :1")
     public User getUser(@TableShardingBy int uid);

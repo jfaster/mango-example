@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 /**
  * @author ash
  */
-public class UserDaoRunner {
+public class TableShardingUserDaoMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
@@ -18,13 +18,20 @@ public class UserDaoRunner {
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
         Mango mango = Mango.newInstance(ds);
 
-        TablePartiionUserDao userDao = mango.create(TablePartiionUserDao.class);
+        TableShardingUserDao userDao = mango.create(TableShardingUserDao.class);
 
         // 需要在mango_example库中创建一张user_8的表
-        int uid = 88;
-        String name = "ash";
-        userDao.addUser(uid, name);
-        System.out.println(userDao.getUser(uid));
+        int uid = 87;
+        User user = userDao.getUser(uid);
+        if (user == null) {
+            user = new User();
+            user.setUid(uid);
+            user.setName("ash");
+            userDao.addUser(user);
+            System.out.println("add new user " + user);
+        } else {
+            System.out.println("get user from db " + user);
+        }
     }
 
 }

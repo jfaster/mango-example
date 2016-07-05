@@ -37,8 +37,9 @@ public class Order2DaoMain {
         Order2Dao orderDao = mango.create(Order2Dao.class);
 
         int uid = 87;
+        String id = System.currentTimeMillis() + "";
         Order order = new Order();
-        order.setId("xxxx");
+        order.setId(id);
         order.setUid(uid);
         order.setPrice(100);
         order.setStatus(1);

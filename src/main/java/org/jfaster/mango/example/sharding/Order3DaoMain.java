@@ -37,7 +37,7 @@ public class Order3DaoMain {
         Order3Dao orderDao = mango.create(Order3Dao.class);
 
         int uid = 87;
-        String id = "" + ((uid / 10) % 2 + 1) + (uid % 10) + "yy";
+        String id = "" + ((uid / 10) % 2 + 1) + (uid % 10) + System.currentTimeMillis();
         Order order = new Order();
         order.setId(id);
         order.setUid(uid);

@@ -11,26 +11,26 @@ import java.util.List;
 /**
  * @author ash
  */
-@DB(table = "order")
-@Sharding(shardingStrategy = Order2Dao.OrderShardingStrategy.class)
-public interface Order2Dao {
+@DB(table = "t_order")
+@Sharding(shardingStrategy = ShardingOrder2Dao.OrderShardingStrategy.class)
+public interface ShardingOrder2Dao {
 
     @SQL("insert into #table(id, uid, price, status) values(:id, :uid, :price, :status)")
-    void addOrder(@ShardingBy("uid") Order order);
+    public void addOrder(@ShardingBy("uid") Order order);
 
     @SQL("select id, uid, price, status from #table where uid = :1")
-    List<Order> getOrdersByUid(@ShardingBy int uid);
+    public List<Order> getOrdersByUid(@ShardingBy int uid);
 
     class OrderShardingStrategy implements ShardingStrategy<Integer, Integer> {
 
         @Override
         public String getDatabase(Integer uid) {
-            return "db" + ((uid / 10) % 2 + 1);
+            return uid < 1000 ? "db1" : "db2";
         }
 
         @Override
         public String getTargetTable(String table, Integer uid) {
-            return table + "_" + (uid % 10);
+            return table + "_" + (uid % 2);
         }
 
     }

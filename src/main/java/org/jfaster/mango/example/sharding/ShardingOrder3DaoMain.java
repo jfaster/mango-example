@@ -1,19 +1,22 @@
 package org.jfaster.mango.example.sharding;
 
+import com.google.common.collect.Lists;
 import org.jfaster.mango.datasource.DataSourceFactory;
 import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.datasource.MultipleDatabaseDataSourceFactory;
 import org.jfaster.mango.datasource.SimpleDataSourceFactory;
+import org.jfaster.mango.example.util.RandomUtils;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * @author ash
  */
-public class Order3DaoMain {
+public class ShardingOrder3DaoMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
@@ -34,19 +37,25 @@ public class Order3DaoMain {
         DataSourceFactory dsf = new MultipleDatabaseDataSourceFactory(factories);
         Mango mango = Mango.newInstance(dsf);
 
-        Order3Dao orderDao = mango.create(Order3Dao.class);
+        ShardingOrder3Dao orderDao = mango.create(ShardingOrder3Dao.class);
 
-        int uid = 87;
-        String id = "" + ((uid / 10) % 2 + 1) + (uid % 10) + System.currentTimeMillis();
-        Order order = new Order();
-        order.setId(id);
-        order.setUid(uid);
-        order.setPrice(100);
-        order.setStatus(1);
+        List<Integer> uids = Lists.newArrayList(66, 67, 9527, 9528);
+        for (Integer uid : uids) {
+            String randomId = RandomUtils.randomStringId(10); // 随机生成10位字符串ID
+            String databaseMark = uid < 1000 ? "1" : "2";
+            String tableMark = uid % 2 + "";
+            String id = databaseMark + tableMark + randomId; // ID前添加分库分表标记
+            Order order = new Order();
+            order.setId(id);
+            order.setUid(uid);
+            order.setPrice(100);
+            order.setStatus(1);
 
-        orderDao.addOrder(order);
-        System.out.println(orderDao.getOrdersByUid(uid));
-        System.out.println(orderDao.getOrderById(id));
+            orderDao.addOrder(order);
+            System.out.println(orderDao.getOrdersByUid(uid));
+            System.out.println(orderDao.getOrderById(id));
+        }
+
     }
 
 }

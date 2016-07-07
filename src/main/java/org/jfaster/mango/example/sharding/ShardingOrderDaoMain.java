@@ -1,19 +1,22 @@
 package org.jfaster.mango.example.sharding;
 
+import com.google.common.collect.Lists;
 import org.jfaster.mango.datasource.DataSourceFactory;
 import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.datasource.MultipleDatabaseDataSourceFactory;
 import org.jfaster.mango.datasource.SimpleDataSourceFactory;
+import org.jfaster.mango.example.util.RandomUtils;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * @author ash
  */
-public class OrderDaoMain {
+public class ShardingOrderDaoMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
@@ -34,18 +37,20 @@ public class OrderDaoMain {
         DataSourceFactory dsf = new MultipleDatabaseDataSourceFactory(factories);
         Mango mango = Mango.newInstance(dsf);
 
-        OrderDao orderDao = mango.create(OrderDao.class);
+        ShardingOrderDao orderDao = mango.create(ShardingOrderDao.class);
 
-        int uid = 87;
-        String id = System.currentTimeMillis() + "";
-        Order order = new Order();
-        order.setId(id);
-        order.setUid(uid);
-        order.setPrice(100);
-        order.setStatus(1);
+        List<Integer> uids = Lists.newArrayList(66, 67, 9527, 9528);
+        for (Integer uid : uids) {
+            String id = RandomUtils.randomStringId(10); // 随机生成10位字符串ID
+            Order order = new Order();
+            order.setId(id);
+            order.setUid(uid);
+            order.setPrice(100);
+            order.setStatus(1);
 
-        orderDao.addOrder(order);
-        System.out.println(orderDao.getOrdersByUid(uid));
+            orderDao.addOrder(order);
+            System.out.println(orderDao.getOrdersByUid(uid));
+        }
     }
 
 }

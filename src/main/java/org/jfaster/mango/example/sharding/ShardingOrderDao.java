@@ -9,25 +9,24 @@ import java.util.List;
 /**
  * @author ash
  */
-@DB(table = "order")
+@DB(table = "t_order")
 @Sharding(
-        databaseShardingStrategy = OrderDao.OrderDatabaseShardingStrategy.class,
-        tableShardingStrategy = OrderDao.OrderTableShardingStrategy.class
+        databaseShardingStrategy = ShardingOrderDao.OrderDatabaseShardingStrategy.class,
+        tableShardingStrategy = ShardingOrderDao.OrderTableShardingStrategy.class
 )
-public interface OrderDao {
-
+public interface ShardingOrderDao {
 
     @SQL("insert into #table(id, uid, price, status) values(:id, :uid, :price, :status)")
-    void addOrder(@DatabaseShardingBy("uid") @TableShardingBy("uid") Order order);
+    public void addOrder(@DatabaseShardingBy("uid") @TableShardingBy("uid") Order order);
 
     @SQL("select id, uid, price, status from #table where uid = :1")
-    List<Order> getOrdersByUid(@DatabaseShardingBy @TableShardingBy int uid);
+    public List<Order> getOrdersByUid(@DatabaseShardingBy @TableShardingBy int uid);
 
     class OrderDatabaseShardingStrategy implements DatabaseShardingStrategy<Integer> {
 
         @Override
         public String getDatabase(Integer uid) {
-            return "db" + ((uid / 10) % 2 + 1);
+            return uid < 1000 ? "db1" : "db2";
         }
 
     }
@@ -36,7 +35,7 @@ public interface OrderDao {
 
         @Override
         public String getTargetTable(String table, Integer uid) {
-            return table + "_" + (uid % 10);
+            return table + "_" + (uid % 2);
         }
 
     }

@@ -1,6 +1,7 @@
 package org.jfaster.mango.example.sharding;
 
 import org.jfaster.mango.datasource.DriverManagerDataSource;
+import org.jfaster.mango.example.util.RandomUtils;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
@@ -8,7 +9,7 @@ import javax.sql.DataSource;
 /**
  * @author ash
  */
-public class TableShardingUserDaoMain {
+public class TableShardingOrderDaoMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
@@ -18,19 +19,18 @@ public class TableShardingUserDaoMain {
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
         Mango mango = Mango.newInstance(ds);
 
-        TableShardingUserDao userDao = mango.create(TableShardingUserDao.class);
+        TableShardingOrderDao orderDao = mango.create(TableShardingOrderDao.class);
 
-        // 需要在mango_example库中创建一张user_8的表
-        int uid = 87;
-        User user = userDao.getUser(uid);
-        if (user == null) {
-            user = new User();
-            user.setUid(uid);
-            user.setName("ash");
-            userDao.addUser(user);
-            System.out.println("add new user " + user);
-        } else {
-            System.out.println("get user from db " + user);
+        for (int uid = 1; uid <= 4; uid++) {
+            String id = RandomUtils.randomStringId(10); // 随机生成10位字符串ID
+            Order order = new Order();
+            order.setId(id);
+            order.setUid(uid);
+            order.setPrice(100);
+            order.setStatus(1);
+
+            orderDao.addOrder(order);
+            System.out.println(orderDao.getOrdersByUid(uid));
         }
     }
 

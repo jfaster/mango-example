@@ -5,7 +5,7 @@ import org.jfaster.mango.sharding.TableShardingStrategy;
 
 import java.util.List;
 
-@DB(table = "order")
+@DB(table = "t_order")
 @Sharding(tableShardingStrategy = TableShardingOrderDao.OrderTableShardingStrategy.class)
 public interface TableShardingOrderDao {
 

@@ -4,8 +4,9 @@ import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 
-public class SingleKeySingeValue {
+public class MultiKeysMultiValuesMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
@@ -16,15 +17,11 @@ public class SingleKeySingeValue {
         Mango mango = Mango.newInstance(ds);
         mango.setDefaultCacheHandler(new CacheHandlerImpl());
 
-        SingleKeySingeValueDao dao = mango.create(SingleKeySingeValueDao.class);
-        dao.insert(1, "ash");
-        dao.insert(2, "lucy");
-        System.out.println(dao.getUser(1));
-        System.out.println(dao.getUser(2));
-        dao.update(2, "lily");
-        System.out.println(dao.getUser(2));
-        dao.delete(1);
-        System.out.println(dao.getUser(1));
+        MultiKeysMultiValuesDao dao = mango.create(MultiKeysMultiValuesDao.class);
+        dao.insert(100, "ash");
+        dao.insert(200, "lucy");
+        dao.insert(300, "lily");
+        System.out.println(dao.getUsers(Arrays.asList(100, 200, 300)));
     }
 
 }

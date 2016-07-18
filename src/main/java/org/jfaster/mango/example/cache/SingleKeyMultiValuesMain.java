@@ -5,7 +5,7 @@ import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
 
-public class SingleKeyMultiValues {
+public class SingleKeyMultiValuesMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";

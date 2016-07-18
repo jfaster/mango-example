@@ -1,14 +1,14 @@
-Sharding
-========
+表分片与数据库分片(分表与分库)
+=========================
 
-Documentation is at http://mango.jfaster.org/sharding.html
+分片相关文档请查看 http://mango.jfaster.org/sharding.html
 
-TableShardingOrderDao
----------------------
+表分片
+-----
 
-Use [TableShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDaoMain.java) to run [TableShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDao.java)
+使用 [TableShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDaoMain.java) 运行 [TableShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDao.java)
 
-Need to create the following table on database **mango_example**
+需要在数据库 **mango_example** 中创建下面的表
 
 ```
 CREATE TABLE `t_order_0` (
@@ -30,12 +30,12 @@ CREATE TABLE `t_order_1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-DatabaseShardingOrderDao
-------------------------
+数据库分片
+--------
 
-Use [DatabaseShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDaoMain.java) to run [DatabaseShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDao.java)
+使用 [DatabaseShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDaoMain.java) 运行 [DatabaseShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDao.java)
 
-Need to create the following table on **both** database **mango_example_db1** and **mango_example_db2**
+需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
 
 ```
 CREATE TABLE `t_order` (
@@ -47,39 +47,12 @@ CREATE TABLE `t_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-ShardingOrderDao
-----------------
+同时使用数据库分片与表分片
+---------------------
 
-Use [ShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDaoMain.java) to run [ShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao.java)
+使用 [ShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDaoMain.java) 运行 [ShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao.java)
 
-Need to create the following table on **both** database **mango_example_db1** and **mango_example_db2**
-
-```
-CREATE TABLE `t_order_0` (
-  `id` varchar(200) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-```
-
-```
-CREATE TABLE `t_order_1` (
-  `id` varchar(200) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-```
-
-ShardingOrder2Dao
------------------
-
-Use [ShardingOrderDao2Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao2Main.java) to run [ShardingOrder2Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder2Dao.java)
-
-Need to create the following table on **both** database **mango_example_db1** and **mango_example_db2**
+需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
 
 ```
 CREATE TABLE `t_order_0` (
@@ -101,12 +74,39 @@ CREATE TABLE `t_order_1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-ShardingOrder3Dao
------------------
+精简分片代码
+----------
 
-Use [ShardingOrderDao3Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao3Main.java) to run [ShardingOrder3Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder3Dao.java)
+使用 [ShardingOrderDao2Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao2Main.java) 运行 [ShardingOrder2Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder2Dao.java)
 
-Need to create the following table on **both** database **mango_example_db1** and **mango_example_db2**
+需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
+
+```
+CREATE TABLE `t_order_0` (
+  `id` varchar(200) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+```
+CREATE TABLE `t_order_1` (
+  `id` varchar(200) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+多维度分片策略
+------------
+
+使用 [ShardingOrderDao3Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao3Main.java) 运行 [ShardingOrder3Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder3Dao.java)
+
+需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
 
 ```
 CREATE TABLE `t_order_0` (

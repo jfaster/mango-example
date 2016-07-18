@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.functional.enums;
+package org.jfaster.mango.example.functional;
 
 /**
  * @author ash

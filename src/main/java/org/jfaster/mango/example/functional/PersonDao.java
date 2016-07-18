@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.functional.enums;
+package org.jfaster.mango.example.functional;
 
 import org.jfaster.mango.annotation.DB;
 import org.jfaster.mango.annotation.ReturnGeneratedId;

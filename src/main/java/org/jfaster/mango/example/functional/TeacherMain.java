@@ -1,4 +1,4 @@
-package org.jfaster.mango.example.functional.list;
+package org.jfaster.mango.example.functional;
 
 import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.operator.Mango;

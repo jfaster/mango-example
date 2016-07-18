@@ -23,7 +23,7 @@ CREATE TABLE `article` (
 主从数据库
 ---------
 
-使用 [MasterSlaveArticleMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/datasource/MasterSlaveArticleMain.java) 运行 [DatabaseShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDao.java)
+使用 [MasterSlaveArticleMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/datasource/MasterSlaveArticleMain.java) 运行 [ArticleDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/datasource/ArticleDao.java)
 
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
@@ -45,7 +45,7 @@ CREATE TABLE `article` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 中创建下面的表
 
 ```
-CREATE TABLE `Blog` (
+CREATE TABLE `blog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE `Blog` (
 同时还需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中创建下面的表
 
 ```
-CREATE TABLE `Comment` (
+CREATE TABLE `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,

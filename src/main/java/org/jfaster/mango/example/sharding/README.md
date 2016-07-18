@@ -8,7 +8,7 @@
 
 使用 [TableShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDaoMain.java) 运行 [TableShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDao.java)
 
-需要在数据库 **mango_example** 中创建下面的表
+需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
 CREATE TABLE `t_order_0` (
@@ -35,7 +35,7 @@ CREATE TABLE `t_order_1` (
 
 使用 [DatabaseShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDaoMain.java) 运行 [DatabaseShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDao.java)
 
-需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
+需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
 CREATE TABLE `t_order` (
@@ -52,7 +52,7 @@ CREATE TABLE `t_order` (
 
 使用 [ShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDaoMain.java) 运行 [ShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao.java)
 
-需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
+需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
 CREATE TABLE `t_order_0` (
@@ -79,7 +79,7 @@ CREATE TABLE `t_order_1` (
 
 使用 [ShardingOrderDao2Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao2Main.java) 运行 [ShardingOrder2Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder2Dao.java)
 
-需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
+需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
 CREATE TABLE `t_order_0` (
@@ -106,7 +106,7 @@ CREATE TABLE `t_order_1` (
 
 使用 [ShardingOrderDao3Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao3Main.java) 运行 [ShardingOrder3Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder3Dao.java)
 
-需要在数据库 **mango_example_db1** 与数据库 **mango_example_db2** 中同时创建下面的表
+需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
 CREATE TABLE `t_order_0` (

@@ -7,7 +7,7 @@ import org.jfaster.mango.transaction.TransactionFactory;
 
 import javax.sql.DataSource;
 
-public class AccountsDaoRunner {
+public class AccountsMain {
 
     public static void main(String[] args) {
         String driverClassName = "com.mysql.jdbc.Driver";
@@ -23,10 +23,17 @@ public class AccountsDaoRunner {
         int lisi = 2;
         int money = 100;
 
+        if (dao.getAccount(zhangsan) == null) {
+            dao.addAccount(zhangsan, 10000);
+        }
+        if (dao.getAccount(lisi) == null) {
+            dao.addAccount(lisi, 10000);
+        }
+
         Transaction tx = TransactionFactory.newTransaction();
         try {
-            dao.addMoney(zhangsan, -money);
-            dao.addMoney(lisi, money);
+            dao.transferMoney(zhangsan, -money);
+            dao.transferMoney(lisi, money);
         } catch (Throwable e) {
             tx.rollback();
             return;

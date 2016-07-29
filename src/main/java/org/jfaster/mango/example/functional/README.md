@@ -11,6 +11,7 @@
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE `teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -27,6 +28,7 @@ CREATE TABLE `teacher` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -43,6 +45,7 @@ CREATE TABLE `person` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `card`;
 CREATE TABLE `card` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,

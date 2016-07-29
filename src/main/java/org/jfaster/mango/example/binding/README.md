@@ -11,6 +11,7 @@
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `binding_user`;
 CREATE TABLE `binding_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,

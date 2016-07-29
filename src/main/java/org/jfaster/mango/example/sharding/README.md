@@ -11,6 +11,7 @@
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `t_order_0`;
 CREATE TABLE `t_order_0` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -21,6 +22,7 @@ CREATE TABLE `t_order_0` (
 ```
 
 ```
+DROP TABLE IF EXISTS `t_order_1`;
 CREATE TABLE `t_order_1` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -38,6 +40,7 @@ CREATE TABLE `t_order_1` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
+DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -55,6 +58,7 @@ CREATE TABLE `t_order` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
+DROP TABLE IF EXISTS `t_order_0`;
 CREATE TABLE `t_order_0` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -65,6 +69,7 @@ CREATE TABLE `t_order_0` (
 ```
 
 ```
+DROP TABLE IF EXISTS `t_order_1`;
 CREATE TABLE `t_order_1` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -82,6 +87,7 @@ CREATE TABLE `t_order_1` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
+DROP TABLE IF EXISTS `t_order_0`;
 CREATE TABLE `t_order_0` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -92,6 +98,7 @@ CREATE TABLE `t_order_0` (
 ```
 
 ```
+DROP TABLE IF EXISTS `t_order_1`;
 CREATE TABLE `t_order_1` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -109,6 +116,7 @@ CREATE TABLE `t_order_1` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
 
 ```
+DROP TABLE IF EXISTS `t_order_0`;
 CREATE TABLE `t_order_0` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -119,6 +127,7 @@ CREATE TABLE `t_order_0` (
 ```
 
 ```
+DROP TABLE IF EXISTS `t_order_1`;
 CREATE TABLE `t_order_1` (
   `id` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,

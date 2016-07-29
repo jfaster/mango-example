@@ -11,6 +11,7 @@ HelloWorld
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `fruit`;
 CREATE TABLE `fruit` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(20) NOT NULL,

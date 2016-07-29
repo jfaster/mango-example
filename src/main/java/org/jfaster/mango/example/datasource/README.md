@@ -11,6 +11,7 @@
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
@@ -28,6 +29,7 @@ CREATE TABLE `article` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
@@ -45,6 +47,7 @@ CREATE TABLE `article` (
 需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `blog`;
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
@@ -57,6 +60,7 @@ CREATE TABLE `blog` (
 同时还需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中创建下面的表
 
 ```
+DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,

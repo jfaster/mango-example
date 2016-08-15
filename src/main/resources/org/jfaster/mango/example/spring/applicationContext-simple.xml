@@ -3,7 +3,7 @@
 
 <beans>
 
-    <!-- 配置数据源工厂 -->
+    <!-- 配置简单数据源工厂 -->
     <bean id="dsf" class="org.jfaster.mango.datasource.SimpleDataSourceFactory">
         <property name="dataSource">
             <bean class="org.jfaster.mango.datasource.DriverManagerDataSource">

@@ -2,7 +2,7 @@ package org.jfaster.mango.example.dynamic;
 
 import org.jfaster.mango.datasource.DriverManagerDataSource;
 import org.jfaster.mango.operator.Mango;
-import org.jfaster.mango.operator.MangoLogger;
+import org.jfaster.mango.util.logging.MangoLogger;
 
 import javax.sql.DataSource;
 

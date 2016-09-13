@@ -1,6 +1,6 @@
 package org.jfaster.mango.example.mapping;
 
-import org.jfaster.mango.jdbc.AbstractRowMapper;
+import org.jfaster.mango.mapper.AbstractRowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

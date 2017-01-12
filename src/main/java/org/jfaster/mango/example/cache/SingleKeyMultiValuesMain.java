@@ -14,7 +14,7 @@ public class SingleKeyMultiValuesMain {
         String password = "root"; // 这里请使用您自己的密码
         DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
         Mango mango = Mango.newInstance(ds);
-        mango.setDefaultCacheHandler(new MockRedisHandler());
+        mango.setCacheHandler(new MockRedisHandler());
 
         SingleKeyMultiValuesDao dao = mango.create(SingleKeyMultiValuesDao.class);
         int uid = 1;

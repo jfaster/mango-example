@@ -16,20 +16,20 @@ public interface ShardingOrder3Dao {
 
     @SQL("insert into #table(id, uid, price, status) values(:id, :uid, :price, :status)")
     @Sharding(shardingStrategy = ShardingOrder3Dao.OrderUidShardingStrategy.class)
-    public void addOrder(@ShardingBy("uid") Order order);
+    void addOrder(@ShardingBy("uid") Order order);
 
     @SQL("select id, uid, price, status from #table where uid = :1")
     @Sharding(shardingStrategy = ShardingOrder3Dao.OrderUidShardingStrategy.class)
-    public List<Order> getOrdersByUid(@ShardingBy int uid);
+    List<Order> getOrdersByUid(@ShardingBy int uid);
 
     @SQL("select id, uid, price, status from #table where id = :1")
     @Sharding(shardingStrategy = OrderIdShardingStrategy.class)
-    public Order getOrderById(@ShardingBy String id);
+    Order getOrderById(@ShardingBy String id);
 
     class OrderUidShardingStrategy implements ShardingStrategy<Integer, Integer> {
 
         @Override
-        public String getDatabase(Integer uid) {
+        public String getDataSourceFactoryName(Integer uid) {
             return uid < 1000 ? "db1" : "db2";
         }
 
@@ -43,7 +43,7 @@ public interface ShardingOrder3Dao {
     class OrderIdShardingStrategy implements ShardingStrategy<String, String> {
 
         @Override
-        public String getDatabase(String orderId) {
+        public String getDataSourceFactoryName(String orderId) {
             return "db" + orderId.substring(0, 1);
         }
 

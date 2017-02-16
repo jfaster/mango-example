@@ -3,15 +3,12 @@ package org.jfaster.mango.example.sharding;
 import com.google.common.collect.Lists;
 import org.jfaster.mango.datasource.DataSourceFactory;
 import org.jfaster.mango.datasource.DriverManagerDataSource;
-import org.jfaster.mango.datasource.MultipleDatabaseDataSourceFactory;
 import org.jfaster.mango.datasource.SimpleDataSourceFactory;
 import org.jfaster.mango.example.util.RandomUtils;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author ash
@@ -25,17 +22,13 @@ public class ShardingOrder2DaoMain {
 
         String url1 = "jdbc:mysql://localhost:3306/mango_example_db1";
         DataSource ds1 = new DriverManagerDataSource(driverClassName, url1, username, password);
-        DataSourceFactory db1DataSourceFactory = new SimpleDataSourceFactory(ds1);
+        DataSourceFactory db1DataSourceFactory = new SimpleDataSourceFactory("db1", ds1);
 
         String url2 = "jdbc:mysql://localhost:3306/mango_example_db2";
         DataSource ds2 = new DriverManagerDataSource(driverClassName, url2, username, password);
-        DataSourceFactory db2DataSourceFactory = new SimpleDataSourceFactory(ds2);
+        DataSourceFactory db2DataSourceFactory = new SimpleDataSourceFactory("db2", ds2);
 
-        Map<String, DataSourceFactory> factories = new HashMap<String, DataSourceFactory>();
-        factories.put("db1", db1DataSourceFactory);
-        factories.put("db2", db2DataSourceFactory);
-        DataSourceFactory dsf = new MultipleDatabaseDataSourceFactory(factories);
-        Mango mango = Mango.newInstance(dsf);
+        Mango mango = Mango.newInstance(db1DataSourceFactory, db2DataSourceFactory);
 
         ShardingOrder2Dao orderDao = mango.create(ShardingOrder2Dao.class);
 

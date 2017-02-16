@@ -17,15 +17,15 @@ import java.util.List;
 public interface ShardingOrderDao {
 
     @SQL("insert into #table(id, uid, price, status) values(:id, :uid, :price, :status)")
-    public void addOrder(@DatabaseShardingBy("uid") @TableShardingBy("uid") Order order);
+    void addOrder(@DatabaseShardingBy("uid") @TableShardingBy("uid") Order order);
 
     @SQL("select id, uid, price, status from #table where uid = :1")
-    public List<Order> getOrdersByUid(@DatabaseShardingBy @TableShardingBy int uid);
+    List<Order> getOrdersByUid(@DatabaseShardingBy @TableShardingBy int uid);
 
     class OrderDatabaseShardingStrategy implements DatabaseShardingStrategy<Integer> {
 
         @Override
-        public String getDatabase(Integer uid) {
+        public String getDataSourceFactoryName(Integer uid) {
             return uid < 1000 ? "db1" : "db2";
         }
 

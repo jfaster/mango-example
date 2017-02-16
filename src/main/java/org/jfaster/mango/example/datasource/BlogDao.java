@@ -7,7 +7,7 @@ import org.jfaster.mango.annotation.SQL;
 /**
  * @author ash
  */
-@DB(database = "db1")
+@DB(name = "dsf1")
 public interface BlogDao {
 
     @ReturnGeneratedId

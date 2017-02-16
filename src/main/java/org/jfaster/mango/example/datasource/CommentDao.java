@@ -7,7 +7,7 @@ import org.jfaster.mango.annotation.SQL;
 /**
  * @author ash
  */
-@DB(database = "db2")
+@DB(name = "dsf2")
 public interface CommentDao {
 
     @ReturnGeneratedId

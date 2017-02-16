@@ -1,13 +1,14 @@
 package org.jfaster.mango.example.datasource;
 
-import org.jfaster.mango.datasource.*;
+import org.jfaster.mango.datasource.DataSourceFactory;
+import org.jfaster.mango.datasource.DriverManagerDataSource;
+import org.jfaster.mango.datasource.MasterSlaveDataSourceFactory;
+import org.jfaster.mango.datasource.SimpleDataSourceFactory;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author ash
@@ -19,27 +20,22 @@ public class MultipleDatabaseMain {
         String username = "root"; // 这里请使用您自己的用户名
         String password = "root"; // 这里请使用您自己的密码
 
-        // 主从数据库数据源工厂
+        // 主从数据源工厂，为了简单，从库参数与主库一致
         String url1 = "jdbc:mysql://localhost:3306/mango_example_db1";
+        String name1 = "dsf1";
         DataSource master = new DriverManagerDataSource(driverClassName, url1, username, password);
-        int slaveNum = 2;
-        List<DataSource> slaves = new ArrayList<DataSource>();
-        for (int i = 0; i < slaveNum; i++) {
-            // 为了简单，参数与主库一致，实际情况下从库有不同的url，username，password
-            slaves.add(new DriverManagerDataSource(driverClassName, url1, username, password));
-        }
-        DataSourceFactory db1DataSourceFactory = new MasterSlaveDataSourceFactory(master, slaves);
+        DataSource slave1 = new DriverManagerDataSource(driverClassName, url1, username, password);
+        DataSource slave2 = new DriverManagerDataSource(driverClassName, url1, username, password);
+        List<DataSource> slaves = Arrays.asList(slave1, slave2);
+        DataSourceFactory dsf1 = new MasterSlaveDataSourceFactory(name1, master, slaves);
 
-        // 单一数据库数据源工厂
+        // 简单数据源工厂
+        String name2 = "dsf2";
         String url2 = "jdbc:mysql://localhost:3306/mango_example_db2";
-        DataSource ds = new DriverManagerDataSource(driverClassName, url2, username, password);
-        DataSourceFactory db2DataSourceFactory = new SimpleDataSourceFactory(ds);
+        DataSource datasource = new DriverManagerDataSource(driverClassName, url2, username, password);
+        DataSourceFactory dsf2 = new SimpleDataSourceFactory(name2, datasource);
 
-        Map<String, DataSourceFactory> factories = new HashMap<String, DataSourceFactory>();
-        factories.put("db1", db1DataSourceFactory); // db1对应主从数据库数据源工厂
-        factories.put("db2", db2DataSourceFactory); // db2单一数据库数据源工厂
-        DataSourceFactory dsf = new MultipleDatabaseDataSourceFactory(factories);
-        Mango mango = Mango.newInstance(dsf);
+        Mango mango = Mango.newInstance(Arrays.asList(dsf1, dsf2));
 
         BlogDao blogDao = mango.create(BlogDao.class);
         Blog blog = new Blog();

@@ -27,7 +27,7 @@ public class StatAlarm {
             @Override
             public void handleStat(long statBeginTime, long statEndTime, List<OperatorStat> stats) throws Exception {
                 for (OperatorStat stat : stats) {
-                    if (stat.getDatabaseAverageExecutePenalty() > TimeUnit.MILLISECONDS.toNanos(10)) {
+                    if (stat.getDatabaseExecuteAveragePenalty() > TimeUnit.MILLISECONDS.toNanos(10)) {
                         // 有DAO接口在10秒内平均响应时间大于10毫秒，促发短信或邮件报警
                         break;
                     }

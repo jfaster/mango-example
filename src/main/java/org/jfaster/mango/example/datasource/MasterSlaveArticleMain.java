@@ -6,8 +6,7 @@ import org.jfaster.mango.datasource.MasterSlaveDataSourceFactory;
 import org.jfaster.mango.operator.Mango;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class MasterSlaveArticleMain {
 
@@ -17,14 +16,14 @@ public class MasterSlaveArticleMain {
         String username = "root"; // 这里请使用您自己的用户名
         String password = "root"; // 这里请使用您自己的密码
 
+        // 连主库的数据源
         DataSource master = new DriverManagerDataSource(driverClassName, url, username, password);
-        int slaveNum = 2;
-        List<DataSource> slaves = new ArrayList<DataSource>();
-        for (int i = 0; i < slaveNum; i++) {
-            // 为了简单，参数与主库一致，实际情况下从库有不同的url，username，password
-            slaves.add(new DriverManagerDataSource(driverClassName, url, username, password));
-        }
-        DataSourceFactory dsf = new MasterSlaveDataSourceFactory(master, slaves);
+
+        // 连从库的数据库，为了简单，参数与主库一致，实际情况下从库有不同的url，username，password
+        DataSource slave1 = new DriverManagerDataSource(driverClassName, url, username, password);
+        DataSource slave2 = new DriverManagerDataSource(driverClassName, url, username, password);
+
+        DataSourceFactory dsf = new MasterSlaveDataSourceFactory(master, Arrays.asList(slave1, slave2));
         Mango mango = Mango.newInstance(dsf);
 
         ArticleDao dao = mango.create(ArticleDao.class);

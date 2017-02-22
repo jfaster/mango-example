@@ -6,9 +6,13 @@
 表分片
 -----
 
-使用 [TableShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDaoMain.java) 运行 [TableShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDao.java)
+入口类 [TableShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/TableShardingOrderDaoMain.java)
 
-需要在数据库 **jdbc:mysql://localhost:3306/mango_example** 中创建下面的表
+需要在下面的数据库中
+
+- **jdbc:mysql://localhost:3306/mango_example**
+
+创建下面的表
 
 ```
 DROP TABLE IF EXISTS `t_order_0`;
@@ -35,9 +39,15 @@ CREATE TABLE `t_order_1` (
 数据库分片
 --------
 
-使用 [DatabaseShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDaoMain.java) 运行 [DatabaseShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDao.java)
+入口类 [DatabaseShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/DatabaseShardingOrderDaoMain.java)
 
-需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
+需要在下面的3个数据库中
+
+- **jdbc:mysql://localhost:3306/db0**
+- **jdbc:mysql://localhost:3306/db1**
+- **jdbc:mysql://localhost:3306/db2** 
+
+同时创建下面的表
 
 ```
 DROP TABLE IF EXISTS `t_order`;
@@ -53,9 +63,15 @@ CREATE TABLE `t_order` (
 同时使用数据库分片与表分片
 ---------------------
 
-使用 [ShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDaoMain.java) 运行 [ShardingOrderDao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao.java)
+入口类 [ShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDaoMain.java)
 
-需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
+需要在下面的3个数据库中
+
+- **jdbc:mysql://localhost:3306/db0**
+- **jdbc:mysql://localhost:3306/db1**
+- **jdbc:mysql://localhost:3306/db2** 
+
+同时创建下面的表
 
 ```
 DROP TABLE IF EXISTS `t_order_0`;
@@ -82,9 +98,15 @@ CREATE TABLE `t_order_1` (
 精简分片代码
 ----------
 
-使用 [ShardingOrderDao2Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao2Main.java) 运行 [ShardingOrder2Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder2Dao.java)
+入口类 [SmartShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/SmartShardingOrderDaoMain.java) 
 
-需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
+需要在下面的3个数据库中
+
+- **jdbc:mysql://localhost:3306/db0**
+- **jdbc:mysql://localhost:3306/db1**
+- **jdbc:mysql://localhost:3306/db2** 
+
+同时创建下面的表
 
 ```
 DROP TABLE IF EXISTS `t_order_0`;
@@ -111,9 +133,15 @@ CREATE TABLE `t_order_1` (
 多维度分片策略
 ------------
 
-使用 [ShardingOrderDao3Main](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrderDao3Main.java) 运行 [ShardingOrder3Dao](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/ShardingOrder3Dao.java)
+入口类 [MultiDimenShardingOrderDaoMain](https://github.com/jfaster/mango-example/blob/master/src/main/java/org/jfaster/mango/example/sharding/MultiDimenShardingOrderDaoMain.java) 
 
-需要在数据库 **jdbc:mysql://localhost:3306/mango_example_db1** 与数据库 **jdbc:mysql://localhost:3306/mango_example_db2** 中同时创建下面的表
+需要在下面的3个数据库中
+
+- **jdbc:mysql://localhost:3306/db0**
+- **jdbc:mysql://localhost:3306/db1**
+- **jdbc:mysql://localhost:3306/db2** 
+
+同时创建下面的表
 
 ```
 DROP TABLE IF EXISTS `t_order_0`;

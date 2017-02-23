@@ -62,15 +62,15 @@ public class MultiDimenShardingOrderDaoMain {
 
         @SQL("insert into #table(id, uid, price, status) values(:id, :uid, :price, :status)")
         @Sharding(shardingStrategy = OrderUidShardingStrategy.class)
-        void addOrder(@ShardingBy("uid") Order order);
+        public void addOrder(@ShardingBy("uid") Order order);
 
         @SQL("select id, uid, price, status from #table where uid = :1")
         @Sharding(shardingStrategy = OrderUidShardingStrategy.class)
-        List<Order> getOrdersByUid(@ShardingBy int uid);
+        public List<Order> getOrdersByUid(@ShardingBy int uid);
 
         @SQL("select id, uid, price, status from #table where id = :1")
         @Sharding(shardingStrategy = OrderIdShardingStrategy.class)
-        Order getOrderById(@ShardingBy String id);
+        public Order getOrderById(@ShardingBy String id);
 
     }
 

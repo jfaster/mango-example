@@ -16,10 +16,10 @@ public interface BindingUserDao {
     public void addUserByIndex(int uid, String name, int age);
 
     @SQL("insert into binding_user(uid, name, age) values(:uid, :name, :age)")
-    public void addUserByRename(@Rename("uid") int uid, @Rename("name") String name, @Rename("age") int age);
+    void addUserByRename(@Rename("uid") int uid, @Rename("name") String name, @Rename("age") int age);
 
 //    @SQL("insert into binding_user(uid, name, age) values(:1, :name, :age)")
-//    public void addUserError(@Rename("uid") int uid, @Rename("name") String name, @Rename("age") int age);
+//    void addUserError(@Rename("uid") int uid, @Rename("name") String name, @Rename("age") int age);
 
     @SQL("insert into binding_user(uid, name, age) values(:1.uid, :1.name, :1.age)")
     public void addUserByObjIndex(BindingUser user);

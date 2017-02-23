@@ -13,6 +13,13 @@ import javax.sql.DataSource;
  */
 public class Slf4JMain {
 
+    /**
+     * !!!
+     * 为了避免工程中其他示例代码输出debug信息，影响显示输出结果
+     * resources目录下logback.xml文件中logger的level被设置成了error
+     * 运行此代码时，请将logback.xml文件中logger的level从error改为debug
+     * !!!
+     */
     public static void main(String[] args) {
         MangoLogger.useSlf4JLogger(); // 使用slf4j输出日志，logback.xml文件在resources目录下
 

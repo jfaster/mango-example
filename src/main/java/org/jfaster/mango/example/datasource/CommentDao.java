@@ -12,9 +12,9 @@ public interface CommentDao {
 
     @ReturnGeneratedId
     @SQL("insert into comment(uid, title, content) values(:uid, :title, :content)")
-    int addComment(Comment comment);
+    public int addComment(Comment comment);
 
     @SQL("select id, uid, title, content from comment where id = :1")
-    Comment getComment(int id);
+    public Comment getComment(int id);
 
 }

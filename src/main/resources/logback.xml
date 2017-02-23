@@ -5,7 +5,8 @@
         </encoder>
     </appender>
 
-    <logger name="org.jfaster.mango" level="debug" additivity="false">
+    <!-- 运行org.jfaster.mango.example.logging.Slf4JMain类时，请将level从error改为debug -->
+    <logger name="org.jfaster.mango" level="error" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 

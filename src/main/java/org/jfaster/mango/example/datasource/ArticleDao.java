@@ -12,9 +12,9 @@ public interface ArticleDao {
 
     @ReturnGeneratedId
     @SQL("insert into article(uid, title, content) values(:uid, :title, :content)")
-    int addArticle(Article article);
+    public int addArticle(Article article);
 
     @SQL("select id, uid, title, content from article where id = :1")
-    Article getArticle(int id);
+    public Article getArticle(int id);
 
 }

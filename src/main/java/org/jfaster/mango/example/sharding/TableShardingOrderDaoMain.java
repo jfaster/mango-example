@@ -45,10 +45,10 @@ public class TableShardingOrderDaoMain {
     public interface TableShardingOrderDao {
 
         @SQL("insert into #table(id, uid, price, status) values(:id, :uid, :price, :status)")
-        void addOrder(@TableShardingBy("uid") Order order);
+        public void addOrder(@TableShardingBy("uid") Order order);
 
         @SQL("select id, uid, price, status from #table where uid = :1")
-        List<Order> getOrdersByUid(@TableShardingBy int uid);
+        public List<Order> getOrdersByUid(@TableShardingBy int uid);
 
     }
 

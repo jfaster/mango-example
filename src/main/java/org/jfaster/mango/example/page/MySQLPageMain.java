@@ -35,7 +35,7 @@ public class MySQLPageMain {
 
         int pageNum = 2;
         int pageSize = 3;
-        Page page = Page.create(pageNum, pageSize);
+        Page page = Page.create(pageNum, pageSize, true);
         List<Message> msgs = dao.getMessages(uid, page);
         System.out.println("total: " + page.getTotal());
         System.out.println("msgs: " + msgs);

@@ -18,7 +18,7 @@ public class OrderDaoMain {
     DataSource ds = new DriverManagerDataSource(driverClassName, url, username, password);
     Mango mango = Mango.newInstance(ds); // 使用数据源初始化mango
 
-    OrderDao dao = mango.create(OrderDao.class);
+    OrderNoSqlDao dao = mango.create(OrderNoSqlDao.class);
     Order order = new Order();
     order.setUid(100);
     order.setStatus(1);

@@ -6,7 +6,7 @@ public class Message {
 
     private int id;
     private int uid;
-    private String content;
+    private int content;
 
     public int getId() {
         return id;
@@ -24,11 +24,11 @@ public class Message {
         this.uid = uid;
     }
 
-    public String getContent() {
+    public int getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(int content) {
         this.content = content;
     }
 
